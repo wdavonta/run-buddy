@@ -12,6 +12,14 @@ header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-image: url("../images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
 header h1 {
@@ -19,6 +27,7 @@ header h1 {
     font-size: 36px;
     color: #fce138;
     margin: 0;
+    text-shadow: 0 0 10px rgba(0,0, 0, 0.5);
 }
 
 header a {
@@ -42,6 +51,7 @@ header nav ul li a {
     padding: 10px 15px;
     font-weight: lighter;
     font-size: 1.55vw;
+    text-shadow: 0 0 10px rgba(0,0, 0, 0.5);
 }
 
 * {
@@ -87,6 +97,8 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+    background-attachment: fixed;
+    background-position: 80%;
     
 }
 /* Hero Style End*/
@@ -104,6 +116,7 @@ section {
     font-style: italic;
     font-size: 55px;
     color: #fce138;
+    text-shadow: 0 0 10px rgba(0,0, 0, 0.5);
 }
 
 .hero-form{
@@ -112,7 +125,9 @@ section {
     padding: 20px;
     color: #024e76;
     margin: 3.5%;
-    width: 40%;  
+    width: 40%; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px; 
 }
 
 .hero-form h3 {
@@ -162,6 +177,9 @@ section {
     background: #fce138;
 }
 
+.services {
+    text-align: center;
+}
 
 
 .section-title {
@@ -186,11 +204,11 @@ section {
     margin: 50px auto;
     padding-bottom: 50px;
     width:80%;
-    border-bottom: 1px solid #39a6b2;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    border-bottom: 1px solid #39a6b2;
 }
 
 .step h3 {
@@ -232,6 +250,13 @@ section {
     font-size: 18px;
 }
 
+.step:last-child {
+    border-bottom: none;
+}
+
+.step:nth-child(even) {
+    border-bottom: 1px solid #39a6b2;
+}
 
 
 
@@ -294,6 +319,7 @@ section {
 /* REACH OUT STYLES START */
 .contact{
     background: #024e76;
+    text-align: center;
 }
 
 .contact h2 {
@@ -365,53 +391,54 @@ section {
 
 /* MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
 @media screen and (max-width: 980px) {
-    header {
+header {
         padding-bottom: 0;
         justify-content: center;
+        position: relative;
   
     }
 
-    header h1 {
+header h1 {
         width: 100%;
         text-align: center;
     }
 
-    header nav ul {
+header nav ul {
         margin-top: 20px;
         width: 100%;
         justify-content: center;
     }
 
-    header nav ul li a {
+ header nav ul li a {
         font-size: 20px;
     }
 
-    footer h2, footer div {
+footer h2, footer div {
         text-align: center;
         width: 100%
     }
 
-    .herto-cta, .hero-form {
+.herto-cta, .hero-form {
         width: 100%;
     }    
 
-    .hero-cta {
+.hero-cta {
         text-align: center;
     }
 
-    .section-title {
+.section-title {
         width: 80%;
     }
 
-    .trainer {
+.trainer {
         flex:0 70%;
     }
 
-    .contact-info iframe{
+.contact-info iframe{
         flex:1 100%;
     }
-    }
-}
+    
+
 
 /* MEDIA QUERY FOR TABLETS AND SMALLER */
 @media screen and (max-width: 768px) {
@@ -444,6 +471,26 @@ section {
           .step-text {
             flex: 100%;  
           }
+
+          .service-grid-container {
+              grid-template-columns: 1fr 1fr;
+
+          }
+
+          .service-grid-item.basic {
+              grid-column: 1;
+          }
+
+          .service-grid-item.both {
+              grid-column: 1 / -1;
+          }
+
+          .service-grid-item.cancel {
+              transform: none;
+              writing-mode: unset;
+              grid-column: 1/ -1;
+              grid-row: -1;
+          }
 }
 
 /* MEDIA QUERY FOR MOBILE PHONE AND SMALLER */
@@ -473,12 +520,163 @@ section {
             text-align: center;
           }
         
-          .contact-info > * {
+.contact-info > * {
             flex: 0 100%;
           }  
-            .contact-form {
+.contact-form {
                 order: 3;
             }
           }
+
+
+
+.service-grid-item {
+    padding: 15px 0;
+    border: 2px solid #024e76;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   
+}
+
+.service-grid-container {
+    background: lightyellow;
+    width: 80%;
+    display: grid;
+    /* repeat(iterator, size) */
+    grid-template-columns: 1fr repeat(2, 4fr);
+    grid-template-rows: repeat(5, 1fr) 2fr;
+    border: 2px solid #024e76;
+    color:  #024e76;
+    font-size: 1.2rem;
+  }
+
+
+  .grid-container {
+    place-items: <align-items><justify-items>;
+  }
+
+/* SERVICE STYLES BEGIN*/
+.services {
+    background: #fce138;
+}
+
+.service-grid-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+ /* specific match*/
+ .serice-grid-item.basic {
+     grid-column: 2 / span 1;
+ }
+
+ .service-grid-item.both {
+     grid-column: 2 / span 2;
+ }
+
+ .service-grid-item.cancel {
+    writing-mode: vertical-lr;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    transform: rotate(180deg);
+  }
+
+  .grid-head, .grid-price, .service-grid-item.cancel {
+      font-size: 1.5rem;
+      font-weight: bold;
+  }
+
+  .some-class {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 10px 15px black;
+  }
+
+  /* form elements */
+  .form-input {
+      border-radius: 10px
+  }
+
+  .hero-form button {
+      border-radius: 10px
+  }
+
+  .contact-form input, .contact-form textarea {
+      border-radius: 10px;
+  }
+
+  .contact-form button {
+      border-radius: 10px;
+  }
+/* form elements end */
+
+  .rounded-corners {
+    -webkit-border-radius: 10px; /* old versions of chrome and safari */
+    -moz-border-radius: 10px; /* old versions of firefox */
+    border-radius: 10px; /* standardized browsers */
+  }
+
+/*default state */
+button {
+    background: white;
+
+}
+
+/* mouse is hovering over button*/
+button:hover {
+    background: red;
+}
+
+/* button is in focus because it was the most recently clicked element on the page*/
+button:focus {
+    background: green;
+}
+
+/* user is actively pressing the cursor down on the button */
+button:active {
+    background:blue;
+}
+
+
+header nav ul li a:hover {
+    background: #fce138;
+    color: #024e76;
+    border-radius: 15px;
+    text-shadow: none;
+  }
+  
+  .hero-form button:hover {
+    background-color: #39a6b2;  
+  }
+  
+  .contact-form button:hover {
+    color: #fce138;
+    background: #39a6b2;
+  }
+
+
+  .form-input:focus {
+      background-color: rgba(255, 255, 255, 1);
+      outline: none;
+  }
+
+  .contact-form input, .contact-form textarea {
+    /* add a transparent background here */
+  }
+  
+  /* create a new css rule for focus state */
+  .contact-form input:focus, .contact-form textarea:focus {
+  
+  }
+.box1 {
+   
+}
+
+.box2 {
+   
+}
+
+.box3 {
     
 }
