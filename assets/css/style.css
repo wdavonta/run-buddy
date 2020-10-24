@@ -1,3 +1,11 @@
+:root {
+    --primary-color: #fce138;
+    --secondary-color: #023e76;
+    --teritary-color: #39a6b2;
+}
+
+
+
 body {
     /* more on this crazy alphanumerical value in a minute! */
     color: #39a6b2;
@@ -22,6 +30,8 @@ header {
     background-position: 80%;
     z-index: 9999;
 }
+
+
 
 header h1 {
     font-weight:bold;
@@ -87,7 +97,7 @@ section {
     
 
 } 
-
+  
 /* Hero Style Start */
 .hero {
     
@@ -730,6 +740,19 @@ header nav ul li a:hover {
   .radio-wrapper input:checked + label::after {
     content: "";
   }
+
+  div {
+    --size-small: 12px;
+    --size-big: 50px;
+    font-size: var(--size-small);
+    margin: var(--size-big) var(--size-small);
+  }
+  
+  div {
+      --favorite-color: blue;
+      color: var(--favorite-color);
+      box-shadow: 5px 5px 10px var(--favorite-color);
+    }
   
 .box1 {
    
